@@ -1,2 +1,2 @@
 # Tex Conex
- Support for connected textures
+ Obj Models!
