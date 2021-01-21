@@ -1,4 +1,4 @@
-package net.ludocrypt.texconex.obj.baked;
+package dev.onyxstudios.foml.obj.baked;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,7 +9,7 @@ import java.util.function.Function;
 
 import com.mojang.datafixers.util.Pair;
 
-import net.ludocrypt.texconex.obj.OBJBuilder;
+import dev.onyxstudios.foml.obj.OBJBuilder;
 import net.minecraft.client.render.model.BakedModel;
 import net.minecraft.client.render.model.ModelBakeSettings;
 import net.minecraft.client.render.model.ModelLoader;

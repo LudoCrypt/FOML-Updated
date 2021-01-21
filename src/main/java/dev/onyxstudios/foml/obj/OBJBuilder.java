@@ -1,4 +1,4 @@
-package net.ludocrypt.texconex.obj;
+package dev.onyxstudios.foml.obj;
 
 import java.util.List;
 import java.util.Map;

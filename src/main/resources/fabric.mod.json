@@ -1,28 +1,32 @@
 {
 	"schemaVersion": 1,
-	"id": "texconex",
-	"version": "${version}",
-	"name": "TexConex",
-	"description": "Obj Models!",
+	"id": "foml",
+	"version": "1.2.0",
+	"name": "FOML",
+	"description": "Fabric OBJ Model Loader",
 	"authors": [
-		"LudoCrypt"
+		"abused_master"
 	],
 	"contact": {
-		"homepage": "https://github.com/LudoCrypt/Tex-Conex",
-		"sources": "https://github.com/LudoCrypt/Tex-Conex",
-		"issues": "https://github.com/LudoCrypt/Tex-Conex"
+		"homepage": "https://minecraft.curseforge.com/projects/FOML",
+		"sources": "https://github.com/OnyxStudios/FOML"
 	},
-	"license": "LGPLv3",
-	"icon": "assets/texconex/icon.png",
-	"environment": "client",
+	"license": "MIT",
+	"icon": "assets/foml/icon.png",
+	"environment": "*",
 	"entrypoints": {
 		"client": [
-			"net.ludocrypt.texconex.TexConex"
+			"dev.onyxstudios.foml.FOML"
 		]
 	},
 	"depends": {
-		"fabricloader": ">=0.7.4",
-		"fabric": "*",
-		"minecraft": "1.16.x"
-	}
+		"fabricloader": ">=0.7.0",
+		"fabric": "*"
+	},
+	"custom": {
+		"modmenu:api": true
+	},
+	"mixins": [
+		"foml.mixins.json"
+	]
 }

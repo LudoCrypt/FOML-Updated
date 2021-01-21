@@ -1,4 +1,4 @@
-package net.ludocrypt.texconex.obj;
+package dev.onyxstudios.foml.obj;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,10 +14,10 @@ import de.javagl.obj.MtlReader;
 import de.javagl.obj.Obj;
 import de.javagl.obj.ObjReader;
 import de.javagl.obj.ObjUtils;
+import dev.onyxstudios.foml.FOML;
+import dev.onyxstudios.foml.obj.baked.OBJUnbakedModel;
 import net.fabricmc.fabric.api.client.model.ModelProviderContext;
 import net.fabricmc.fabric.api.client.model.ModelResourceProvider;
-import net.ludocrypt.texconex.TexConex;
-import net.ludocrypt.texconex.obj.baked.OBJUnbakedModel;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.model.UnbakedModel;
 import net.minecraft.client.render.model.json.ModelTransformation;
@@ -33,7 +33,7 @@ public class OBJLoader implements ModelResourceProvider, Function<ResourceManage
 		if (!objHandlers.contains(modid)) {
 			objHandlers.add(modid);
 		} else {
-			TexConex.LOGGER.warn("Duplicate registry of OBJ Handler, Source: " + modid);
+			FOML.LOGGER.warn("Duplicate registry of OBJ Handler, Source: " + modid);
 		}
 	}
 
@@ -47,7 +47,7 @@ public class OBJLoader implements ModelResourceProvider, Function<ResourceManage
 			Obj obj = ObjUtils.convertToRenderable(ObjReader.read(reader));
 			model = new OBJBuilder(ObjUtils.triangulate(obj), loadMTL(manager, modid, obj.getMtlFileNames()));
 		} catch (IOException e) {
-			TexConex.LOGGER.error("Could not read obj model!", e);
+			FOML.LOGGER.error("Could not read obj model!", e);
 			return null;
 		}
 
@@ -69,7 +69,7 @@ public class OBJLoader implements ModelResourceProvider, Function<ResourceManage
 				Resource resource = manager.getResource(resourceId);
 				mtls.addAll(MtlReader.read(resource.getInputStream()));
 			} else {
-				TexConex.LOGGER.warn("Warning, a model specifies an MTL File but it could not be found! Source: " + modid + ":" + name);
+				FOML.LOGGER.warn("Warning, a model specifies an MTL File but it could not be found! Source: " + modid + ":" + name);
 			}
 		}
 
@@ -89,7 +89,7 @@ public class OBJLoader implements ModelResourceProvider, Function<ResourceManage
 				OBJBuilder model = loadModel(reader, identifier.getNamespace(), resourceManager);
 				return new OBJUnbakedModel(model, transform);
 			} catch (IOException e) {
-				TexConex.LOGGER.error("Unable to load OBJ Model, Source: " + identifier.toString(), e);
+				FOML.LOGGER.error("Unable to load OBJ Model, Source: " + identifier.toString(), e);
 			}
 		}
 

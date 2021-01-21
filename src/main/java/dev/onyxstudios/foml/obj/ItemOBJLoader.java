@@ -1,4 +1,4 @@
-package net.ludocrypt.texconex.obj;
+package dev.onyxstudios.foml.obj;
 
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -8,12 +8,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 
+import dev.onyxstudios.foml.FOML;
+import dev.onyxstudios.foml.obj.baked.OBJUnbakedModel;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.model.ModelProviderContext;
 import net.fabricmc.fabric.api.client.model.ModelVariantProvider;
-import net.ludocrypt.texconex.TexConex;
-import net.ludocrypt.texconex.obj.baked.OBJUnbakedModel;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.model.UnbakedModel;
 import net.minecraft.client.render.model.json.ModelTransformation;
@@ -62,7 +62,7 @@ public class ItemOBJLoader implements ModelVariantProvider, Function<ResourceMan
 				// registered namespace would
 				// otherwise spew the console with this error.
 				if (!(e instanceof IllegalStateException)) {
-					TexConex.LOGGER.error("Unable to load OBJ Model, Source: " + modelId.toString(), e);
+					FOML.LOGGER.error("Unable to load OBJ Model, Source: " + modelId.toString(), e);
 				}
 			}
 		}
